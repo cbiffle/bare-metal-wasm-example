@@ -1,3 +1,5 @@
 /target
 **/*.rs.bk
 Cargo.lock
+www/bare_metal_wasm.wasm
+__pycache__/
