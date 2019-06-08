@@ -20,7 +20,9 @@ pub unsafe extern fn go() {
 
 // We split this out so that we can escape 'unsafe' as quickly as possible.
 fn render_frame_safe(buffer: &mut [u32; WIDTH * HEIGHT]) {
-    for pixel in buffer.iter_mut() {
-        *pixel = 0xFF_FF_00_FF;
+    for y in 0..HEIGHT {
+        for x in 0..WIDTH {
+            buffer[y * WIDTH + x] = (x ^ y) as u32 | 0xFF_00_00_00;
+        }
     }
 }
